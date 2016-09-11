@@ -1,4 +1,4 @@
-//© A+ Computer Science  -  www.apluscompsci.com
+//ï¿½ A+ Computer Science  -  www.apluscompsci.com
 //Name -   
 //Date -
 //Class -
@@ -29,11 +29,11 @@ public class Tablet extends JPanel implements KeyListener, Runnable
 	public Tablet(JFrame par)
 	{
 		//the keys array will store the key presses
-		//[0]=left arrow
-		//[1]=right arrow
-		//[2]=up arrow
-		//[3]=down arrow
-		//[4]=space bar
+		[0]=VK_LEFT
+		[1]=VK_RIGHT
+		[2]=VK_UP
+		[3]=VK_DOWN
+		[4]=VK_SPACE
 		keys = new boolean[5];
 
 		setBackground(Color.BLACK);
@@ -65,20 +65,33 @@ public class Tablet extends JPanel implements KeyListener, Runnable
 		//add in code to move the x and y
 		//if the up arrow was pressed
 		   //take 1 away from y value
-
+        if (keys[2]){
+            y -= 1;
+        }
 		//if the down arrow was pressed
 		   //add 1 to the y value
-
+        if (keys[3]){
+            y += 1;
+        }
 		//if the left array was pressed
 		   //take 1 away from x valye
-
+        if (keys[0]){
+            x -= 1;
+        }
 		//if the right arrow was pressed
 		   //add 1 to the y value
-
+        if (keys[1]){
+            x += 1;
+        }
 		//if the space bar was pressed
 		   //reset x and y to the center
 		   //draw a black rectangle the size of the screen
-
+        if (keys[5]){
+            x = DrawIt.WIDTH/2;
+            y = DrawIt.HEIGHT/2;
+            window.setColor(color.black);
+            window.drawRect(0,0,DrawIt.WIDTH,DrawIt.HEIGHT)
+        }
       window.setColor( Color.WHITE );
 		window.fillRect(x, y, 2, 2);
 	}
